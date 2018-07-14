@@ -10,8 +10,9 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args){
 		int option;
-		List<Account> accountsList = new ArrayList<Account>();
-		List<SavingsAccount> savingsAccountsList = new ArrayList<SavingsAccount>();
+		Scanner input;
+		List<Account> accountsList = new ArrayList<>();
+		List<Account> savingsAccountsList = new ArrayList<>();
 		
 		do {
 	        System.out.println(
@@ -19,7 +20,7 @@ public class Main {
 		        "1. Create account" + "\n" +
 		        "0. Exit" + "\n"
 	        );
-	        Scanner input = new Scanner(System.in);
+	        input = new Scanner(System.in);
 	        option = input.nextInt();
 	        switch(option) {
 	        	case 1: 
@@ -37,15 +38,18 @@ public class Main {
 	        			case 1: 
 	        				Account newAccount = new Account(name, ID); 
 	        				System.out.println("Account created \n" + newAccount.toString());
+	        				accountsList.add(newAccount);
 	        				break;
 	        			case 2: 
 	        				Account newSavingsAccount = new SavingsAccount(name, ID); 
 	        				System.out.println("Account created \n" + newSavingsAccount.toString());
+	        				savingsAccountsList.add(newSavingsAccount);
 	        				break;
 	        		}
 	        		break;
 	        }
-	        input.close();
 		} while(option != 0);
+        input.close();
+
 	}
 }

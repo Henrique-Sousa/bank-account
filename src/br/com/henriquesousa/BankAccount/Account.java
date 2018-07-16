@@ -14,6 +14,10 @@ public class Account {
     	this.ID = ID;
     }
     
+    public String getID() {
+    	return this.ID;
+    }
+    
     @Override
     public String toString() {
     	return "Name: " + name + "\n" +

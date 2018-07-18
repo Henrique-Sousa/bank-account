@@ -2,6 +2,8 @@ package br.com.henriquesousa;
 
 import br.com.henriquesousa.BankAccount.Account;
 import br.com.henriquesousa.BankAccount.SavingsAccount;
+import br.com.henriquesousa.BankAccount.AccountsList;
+import br.com.henriquesousa.BankAccount.SavingsAccountsList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +14,8 @@ public class Main {
 	public static void main(String[] args){
 		int option;
 		Scanner input;
-		List<Account> accountsList = new ArrayList<>();
-		List<Account> savingsAccountsList = new ArrayList<>();
+		AccountsList accountsList = new AccountsList();
+		SavingsAccountsList savingsAccountsList = new SavingsAccountsList();
 		
 		do {
 	        System.out.println(
@@ -42,12 +44,12 @@ public class Main {
 	        			case 1: 
 	        				Account newAccount = new Account(name, IDToCreate); 
 	        				System.out.println("Account created \n" + newAccount.toString());
-	        				accountsList.add(newAccount);
+	        				accountsList.addAccount(newAccount);
 	        				break;
 	        			case 2: 
-	        				Account newSavingsAccount = new SavingsAccount(name, IDToCreate); 
+	        				SavingsAccount newSavingsAccount = new SavingsAccount(name, IDToCreate); 
 	        				System.out.println("Account created \n" + newSavingsAccount.toString());
-	        				savingsAccountsList.add(newSavingsAccount);
+	        				savingsAccountsList.addSavingsAccount(newSavingsAccount);
 	        				break;
 	        		}
 	        		break;
@@ -58,7 +60,7 @@ public class Main {
 	        				"2. Savings account" + "\n"
 	        		);
 	        		int typeToDelete = input.nextInt();
-	        		List<Account> listToDelete = accountsList;
+	        		AccountsList listToDelete = accountsList;
 	        		switch(typeToDelete) {
 	        			case 1: listToDelete = accountsList; break;
 	        			case 2: listToDelete = savingsAccountsList; break;

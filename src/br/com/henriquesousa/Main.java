@@ -3,10 +3,7 @@ package br.com.henriquesousa;
 import br.com.henriquesousa.BankAccount.Account;
 import br.com.henriquesousa.BankAccount.SavingsAccount;
 import br.com.henriquesousa.BankAccount.AccountsList;
-import br.com.henriquesousa.BankAccount.SavingsAccountsList;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -15,7 +12,7 @@ public class Main {
 		int option;
 		Scanner input;
 		AccountsList accountsList = new AccountsList();
-		SavingsAccountsList savingsAccountsList = new SavingsAccountsList();
+		AccountsList savingsAccountsList = new AccountsList();
 		
 		do {
 	        System.out.println(
@@ -49,7 +46,7 @@ public class Main {
 	        			case 2: 
 	        				SavingsAccount newSavingsAccount = new SavingsAccount(name, IDToCreate); 
 	        				System.out.println("Account created \n" + newSavingsAccount.toString());
-	        				savingsAccountsList.addSavingsAccount(newSavingsAccount);
+	        				savingsAccountsList.addAccount(newSavingsAccount);
 	        				break;
 	        		}
 	        		break;
